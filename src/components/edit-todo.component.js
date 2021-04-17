@@ -75,7 +75,7 @@ export default class EditTodo extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{marginTop: 10}}>
                 <h3 align="center">Update Todo</h3>
                 <form onSubmit={this.onSubmit}>
                 <div className="form-group"> 

@@ -8,7 +8,7 @@ const Todo = props => (
         <td className={ props.todo.todo_completed ? 'completed' : ''}>{ props.todo.todo_priority }</td>
         <td>
             {/** send id as URL parameter */}
-            <Link to={"/edit/"+props.todo._id}>Edit</Link>
+            <Link to={"/edit/"+props.todo._id}>Edit</Link> | <Link to={"/delete/"+props.todo._id}>Delete</Link>
         </td>
     </tr>
 )
@@ -36,8 +36,9 @@ export default class TodosList extends Component {
     }
     render () {
         return (
-            <div>
+            <div style={{marginTop: 10}}>
                     <h3>Todos List</h3>
+                    
                     <table className="table table-striped" style={{ marginTop: 20}}>
                         <thead>
                             <tr>

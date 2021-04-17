@@ -55,6 +55,20 @@ todoRoutes.route('/update/:id').post(function(req, res) {
     });
 });
 
+todoRoutes.route('/delete/:id').post(function(req, res) {
+    Todo.findById(req.params.id, function(err, todo) {
+        if (!todo)
+            res.status(404).send("data is not found");
+        else
+            todo.deleteOne().then(todo => {
+                res.json('Todo deleted');
+            })
+            .catch(err => {
+                res.status(400).send("Error deleting object");
+            });
+    });
+});
+
 todoRoutes.route('/add').post(function(req, res) {
     let todo = new Todo(req.body);
     todo.save().then(todo => {
